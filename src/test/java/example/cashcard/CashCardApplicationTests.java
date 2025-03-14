@@ -24,9 +24,9 @@ class CashCardApplicationTests {
 	@Autowired
 	TestRestTemplate restTemplate;
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 
 	@Test
 	void shouldReturnACashCardWhenDataIsSaved() {
@@ -53,7 +53,7 @@ class CashCardApplicationTests {
 	@Test
 	@DirtiesContext
 	void shouldCreateANewCashCard (){
-		CashCard newCashCard = new CashCard(null, 250.00);
+		CashCard newCashCard = new CashCard(null, 250.00, "sarah1");
 		ResponseEntity<Void> createReponse = restTemplate.postForEntity("/cashcards", newCashCard, Void.class);
 		assertThat(createReponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
